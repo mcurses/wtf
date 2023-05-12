@@ -4,6 +4,13 @@ const port = process.env.PORT || 3003;
 
 let wtfCounter = 0;
 const wtfTimestamps = [];
+const byeMessage = [
+  "Tschau Kakao",
+  "adele",
+  "tschö mit ö",
+  "paris, athen, auf wiedersehn",
+  "man siebt sich",
+];
 
 app.use(express.json());
 
@@ -23,6 +30,12 @@ app.get('/wtf-per-minute', (req, res) => {
   }
 
   res.status(200).send({ wtfPerMinute: wtfTimestamps.length });
+});
+
+app.get("/byeMessage", (req, res) => {
+  const randomBye = Math.floor(Math.random() * byeMessage.length);
+  console.log("randomBye", randomBye);
+  res.status(200).send({ Verabschiedung: byeMessage[randomBye] });
 });
 
 app.listen(port, () => {
