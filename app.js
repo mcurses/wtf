@@ -25,9 +25,9 @@ app.get("/wtf-per-minute", (req, res) => {
   res.status(200).send({ wtfPerMinute: wtfTimestamps.length });
 });
 
-// app.get("/wtf-total", (req, res) => {
-//   res.status(200).send({ wtfTotal: wtfCounter });
-// });
+app.get("/wtf-total", (req, res) => {
+  res.status(200).send({ wtfTotal: wtfCounter });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
