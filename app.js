@@ -2,27 +2,27 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3003;
 
-let wtfCounter = 0;
+let meowCounter = 0;
 const wtfTimestamps = [];
 
 app.use(express.json());
 
-app.post('/wtf', (req, res) => {
+app.post('/meow', (req, res) => {
   const now = Date.now();
-  wtfCounter++;
-  wtfTimestamps.push(now);
-  res.status(200).send({ message: 'WTF received' });
+  meowCounter++;
+  meowTimestamps.push(now);
+  res.status(200).send({ message: 'meow received' });
 });
 
-app.get('/wtf-per-minute', (req, res) => {
+app.get('/meow-per-minute', (req, res) => {
   const oneMinuteAgo = Date.now() - 60 * 1000;
   
   // Remove outdated timestamps
-  while (wtfTimestamps.length > 0 && wtfTimestamps[0] < oneMinuteAgo) {
-    wtfTimestamps.shift();
+  while (meowTimestamps.length > 0 && meowTimestamps[0] < oneMinuteAgo) {
+    meowTimestamps.shift();
   }
 
-  res.status(200).send({ wtfPerMinute: wtfTimestamps.length });
+  res.status(200).send({ meowPerMinute: meowTimestamps.length });
 });
 
 app.listen(port, () => {
