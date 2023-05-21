@@ -23,6 +23,7 @@ app.get('/meow-per-minute', (req, res) => {
   }
 
   res.status(200).send({ meowPerMinute: meowTimestamps.length });
+  res.end("Test");
 });
 
 app.listen(port, () => {
