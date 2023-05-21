@@ -12,6 +12,8 @@ app.post('/meow', (req, res) => {
   meowCounter++;
   meowTimestamps.push(now);
   res.status(200).send({ message: 'meow received' });
+
+  console.log("app.post");
 });
 
 app.get('/meow-per-minute', (req, res) => {
@@ -23,7 +25,8 @@ app.get('/meow-per-minute', (req, res) => {
   }
 
   res.status(200).send({ meowPerMinute: meowTimestamps.length });
-  res.end("Test");
+
+  console.log("app.get");
 });
 
 app.listen(port, () => {
