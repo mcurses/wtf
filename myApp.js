@@ -33,4 +33,5 @@ app.get("/wtf-per-minute", (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  //test
 });
