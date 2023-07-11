@@ -14,6 +14,10 @@ app.post("/miau", (req, res) => {
     res.status(200).send({message: "maius received"});
 });
 
+app.get("/miau", (req, res) => {
+    res.status(200).send({message: `Total Miau's: ${miauCounter}`});
+});
+
 app.get("/miau-per-minute", (req, res) => {
     const oneMinuteAgo = Date.now() - 60 * 1000;
 
